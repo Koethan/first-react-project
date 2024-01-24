@@ -1,23 +1,4 @@
 
-
-
-// function game(computer,human){
-//     // let scoreHuman = 0
-//     // let scoreComputer = 0
-//     // for(let i = 0; i <= 4; i++){
-//     //     console.log(oneRound(computer, human))
-//     //     console.log(i)
-//     //     // if(oneRound(computer,human).includes('win')){
-//     //     //     scoreHuman++
-//     //     // }else if(oneRound(computer, human).includes('lose')){
-//     //     //     scoreComputer++
-//     //     // }
-//     // }
-//     (oneRound(computer,human))
-
-//     // return `The final score was computer: ${scoreComputer} to player: ${scoreHuman}!`
-// } 
-
 function game(){
 
     function getComputerChoice(){
@@ -47,16 +28,42 @@ function game(){
         } else if (player == "rock" && comp == "scissors" || player == "paper" && comp == "rock" || player == "scissors" && comp == "paper"){
             return `You win! ${player} beats ${comp}`
         } else if( comp == player){
-            return `Its a tie! ${player} matches with ${comp}`
+            return `Its a tie!`
             
         }
       
         
     }  
 
-    for(let i = 0; i <=4; i++){
+
+    for (let i = 0; i <=4; i++){
         console.log(oneRound(getComputerChoice(), playerChoice()))
-    } 
+    }
+
+    // for(let i = 0; i <=4; i++){
+    //     // if((oneRound(getComputerChoice(), playerChoice())) == `Its a tie!`){
+    //     //     i--
+    //     // }else{
+    //     //     console.log(oneRound(getComputerChoice(), playerChoice()))
+    //     // }
+    //     console.log(oneRound(getComputerChoice(), playerChoice()))
+    // } 
+
+
+
+    // let count = 1
+    // while(count<=5){
+    //     if(oneRound(getComputerChoice(), playerChoice())== "Its a tie!"){
+    //         console.log(oneRound(getComputerChoice(), playerChoice()))
+    //         console.log('no')
+
+    //     }else{
+    //         console.log(oneRound(getComputerChoice(), playerChoice()))
+    //         console.log(`round ${count}`)
+    //         console.log('yes')
+    //         count++
+    //     }
+    // }
 }
 
 
