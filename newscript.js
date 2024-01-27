@@ -35,6 +35,41 @@ function game(){
         
     }  
 
+    let resultDisplay = document.getElementById('resultDisplay')
+    let answer = document.createElement('p')
+    let compChoice = getComputerChoice()
+    
+
+    let rockBtn = document.getElementById('rock')
+    rockBtn.addEventListener('click',()=>{
+        answer.textContent = oneRound(compChoice, 'rock')
+        resultDisplay.appendChild(answer)
+        // console.log(oneRound(compChoice, 'rock'))
+    })
+    
+    let paperBtn = document.querySelector('#paper')
+    paperBtn.addEventListener('click', ()=>{
+        answer.textContent = oneRound(compChoice, paperBtn.value)
+        resultDisplay.appendChild(answer)
+        // console.log(oneRound(compChoice, paperBtn.value))
+    })
+
+    
+    let scissorsBtn = document.querySelector('#scissors')
+    scissorsBtn.addEventListener('click', ()=>{
+        answer.textContent = oneRound(compChoice, scissorsBtn.value)
+        resultDisplay.appendChild(answer)
+        // console.log(oneRound(compChoice, scissorsBtn.value))
+    })
+
+    
+    
+
+
+
+
+
+
 
     // for (let i = 0; i <=4; i++){
     //     console.log(oneRound(getComputerChoice(), playerChoice()))
