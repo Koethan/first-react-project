@@ -52,3 +52,6 @@ let answer = console.log(game(getComputerChoice(), getHumanChoice()))
 // }
 
 
+const carsIHad = ["Chrysler", "Ford", "Toyota", "Jeep", "Dodge"]
+carsIHad.forEach(car => console.log(`I once had a car by the maker of ${car}`))
+
