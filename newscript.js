@@ -36,9 +36,9 @@ function game(){
     }  
 
 
-    for (let i = 0; i <=4; i++){
-        console.log(oneRound(getComputerChoice(), playerChoice()))
-    }
+    // for (let i = 0; i <=4; i++){
+    //     console.log(oneRound(getComputerChoice(), playerChoice()))
+    // }
 
     // for(let i = 0; i <=4; i++){
     //     // if((oneRound(getComputerChoice(), playerChoice())) == `Its a tie!`){
