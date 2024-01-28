@@ -1,26 +1,45 @@
 
 function game(){
 
+    // function getComputerChoice(){
+    //     let random = Math.floor(Math.random() * 3)
+    //     if(random == 0){
+    //         return "rock"
+    //     }else if(random == 1){
+    //         return "paper"
+    //     }else if(random == 2){
+    //         return "scissors"
+    //     }
+    
+    // }
+
     function getComputerChoice(){
+        let choices = ['rock', 'paper', 'scissors']
         let random = Math.floor(Math.random() * 3)
-        if(random == 0){
-            return "rock"
-        }else if(random == 1){
-            return "paper"
-        }else if(random == 2){
-            return "scissors"
-        }
-    
+        return choices[random]
     }
 
-    function playerChoice(){
-        let choice = prompt("please enter rock, paper, scissors").toLowerCase()
-        return choice
-    
+
+    function getplayerChoice(){
+        let playerChoice;
+        let rockBtn = document.querySelector('#rock')
+        let paperBtn = document.querySelector('#paper')
+        let scissorsBtn = document.querySelector('#scissors')
+
+        rockBtn.addEventListener('click', ()=>{
+            playerChoice = 'rock'
+        })
+        paperBtn.addEventListener('click', ()=>{
+            playerChoice = 'paper'
+        })
+        scissorsBtn.addEventListener('click', ()=>{
+            playerChoice = "scissors"
+        })
+
     }
 
-    function oneRound(comp, player){
-    
+    function roundDynamic(comp, player){
+
         if (comp == "rock" && player == "scissors" || comp == "paper" && player == "rock" || comp == "scissors" && player == "paper" ){
             
             return `You lose! ${comp} beats ${player}`
@@ -28,41 +47,104 @@ function game(){
         } else if (player == "rock" && comp == "scissors" || player == "paper" && comp == "rock" || player == "scissors" && comp == "paper"){
             return `You win! ${player} beats ${comp}`
         } else if( comp == player){
-            return `Its a tie!`
-            
+            return `Its a tie!`      
+    }
+    
+    function keepScore(roundResult){
+        let playerScore = 0
+        let computerScore = 0
+        if(roundResult.includes('win')){
+            playerScore++
+        }else if(roundResult.includes('lose')){
+            computerScore++
+        }else{
+            continue
         }
+        return playerScore,computerScore
+    }
+
+
+    // function playerChoice(){
+    //     let choice = prompt("please enter rock, paper, scissors").toLowerCase()
+    //     return choice
+    
+    // }
+
+    // function oneRound(comp, player){
+    
+    //     if (comp == "rock" && player == "scissors" || comp == "paper" && player == "rock" || comp == "scissors" && player == "paper" ){
+            
+    //         return `You lose! ${comp} beats ${player}`
+    
+    //     } else if (player == "rock" && comp == "scissors" || player == "paper" && comp == "rock" || player == "scissors" && comp == "paper"){
+    //         return `You win! ${player} beats ${comp}`
+    //     } else if( comp == player){
+    //         return `Its a tie!`
+            
+    //     }
       
         
-    }  
+    // }  
 
-    let resultDisplay = document.getElementById('resultDisplay')
-    let answer = document.createElement('p')
-    let compChoice = getComputerChoice()
+    // let playerScore = 0
+    // let compScore = 0
+
+    let playerDisplay = document.createElement('p')
+    let compDisplay = document.createElement('p')
     
 
-    let rockBtn = document.getElementById('rock')
-    rockBtn.addEventListener('click',()=>{
-        answer.textContent = oneRound(compChoice, 'rock')
-        resultDisplay.appendChild(answer)
-        // console.log(oneRound(compChoice, 'rock'))
-    })
-    
-    let paperBtn = document.querySelector('#paper')
-    paperBtn.addEventListener('click', ()=>{
-        answer.textContent = oneRound(compChoice, paperBtn.value)
-        resultDisplay.appendChild(answer)
-        // console.log(oneRound(compChoice, paperBtn.value))
-    })
+    for(let i = 0; i < 5; i++){
 
     
-    let scissorsBtn = document.querySelector('#scissors')
-    scissorsBtn.addEventListener('click', ()=>{
-        answer.textContent = oneRound(compChoice, scissorsBtn.value)
-        resultDisplay.appendChild(answer)
-        // console.log(oneRound(compChoice, scissorsBtn.value))
-    })
+
+        let resultDisplay = document.getElementById('resultDisplay')
+        let answer = document.createElement('p')
+        let compChoice = getComputerChoice()
+        
+
+        let rockBtn = document.getElementById('rock')
+        rockBtn.addEventListener('click',()=>{
+            answer.textContent = oneRound(compChoice, 'rock')
+            resultDisplay.appendChild(answer)
+            // console.log(oneRound(compChoice, 'rock'))
+            console.log(playerScore++)
+            console.log(compScore--)
+            console.log(answer.textContent)
+            console.log(answer.textContent.includes('win'))
+        })
+        
+        let paperBtn = document.querySelector('#paper')
+        paperBtn.addEventListener('click', ()=>{
+            answer.textContent = oneRound(compChoice, paperBtn.value)
+            if(answer.textContent.includes('win')){
+                playerScore++
+            }else if(answer.textContent.includes('lose')){
+                compScore++
+            }
+            resultDisplay.appendChild(answer)
+            // console.log(oneRound(compChoice, paperBtn.value))
+        })
 
     
+        let scissorsBtn = document.querySelector('#scissors')
+        scissorsBtn.addEventListener('click', ()=>{
+            answer.textContent = oneRound(compChoice, scissorsBtn.value)
+            if(answer.textContent.includes('win')){
+                playerScore++
+            }else if(answer.textContent.includes('lose')){
+                compScore++
+            }
+            resultDisplay.appendChild(answer)
+            // console.log(oneRound(compChoice, scissorsBtn.value))
+
+        })
+        
+    }
+    
+
+   
+
+   
     
 
 
