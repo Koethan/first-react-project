@@ -16,7 +16,7 @@ function getComputerChoice(){
 
 
     let scoreDisplay = document.querySelector('#playerScore')
-    let computerDisplay = document.querySelector('#computerScore')
+    let finalResult = document.querySelector('#finalResult')
     let resultsDisplay = document.querySelector('#gameResult')
     
 
@@ -28,8 +28,21 @@ function getComputerChoice(){
         } else if(results.includes('lose')){
             computerScore++
         }
+        if(playerScore >= 5){
+            finalResult.innerText = 'Congrats, You won the game!'
+            playerScore = 0
+            computerScore = 0
+        }else if(computerScore >=5){
+            finalResult.innerText = 'Sorry, You lost the game!'
+            playerScore = 0
+            computerScore = 0
+        }
+        if(playerScore > 0 || computerScore > 0){
+            finalResult.innerText = " "
+        }
+        
                 
-        console.log(scoreCheck(computerScore, playerScore))
+        // console.log(scoreCheck(computerScore, playerScore))
         resultsDisplay.textContent = results
         scoreDisplay.textContent = `player score is: ${playerScore} vs. computer score is: ${computerScore}`
     })
@@ -44,10 +57,23 @@ function getComputerChoice(){
         } else if(results.includes('lose')){
             computerScore++
         }
-
-        console.log(scoreCheck(computerScore, playerScore))
-        console.log(results)
-        console.log(`player score is: ${playerScore} vs. computer score is: ${computerScore}`)
+        if(playerScore >= 5){
+            finalResult.innerText = 'Congrats, You won the game!'
+            playerScore = 0
+            computerScore = 0
+        }else if(computerScore >=5){
+            finalResult.innerText = 'Sorry, You lost the game!'
+            playerScore = 0
+            computerScore = 0
+        }
+        if(playerScore > 0 || computerScore > 0){
+            finalResult.innerText = " "
+        }
+        
+                
+        
+        resultsDisplay.textContent = results
+        scoreDisplay.textContent = `player score is: ${playerScore} vs. computer score is: ${computerScore}`
     })
 
     scissorsBtn.addEventListener('click', ()=>{
@@ -59,10 +85,23 @@ function getComputerChoice(){
         } else if(results.includes('lose')){
             computerScore++
         }
+        if(playerScore >= 5){
+            finalResult.innerText = 'Congrats, You won the game!'
+            playerScore = 0
+            computerScore = 0
+        }else if(computerScore >=5){
+            finalResult.innerText = 'Sorry, You lost the game!'
+            playerScore = 0
+            computerScore = 0
+        }
+        if(playerScore > 0 || computerScore > 0){
+            finalResult.innerText = " "
+        }
         
-        console.log(scoreCheck(computerScore, playerScore))
-        console.log(results)
-        console.log(`player score is: ${playerScore} vs. computer score is: ${computerScore}`)
+                
+        
+        resultsDisplay.textContent = results
+        scoreDisplay.textContent = `player score is: ${playerScore} vs. computer score is: ${computerScore}`
     })
     
 
@@ -81,17 +120,17 @@ function roundDynamic(comp, player){
 }
 
 
-function scoreCheck(comp, player){
-    if(comp >= 5){
-        comp = 0
-        player = 0
-        return('the computer wins the game, thanks for playing!')
+// function scoreCheck(comp, player){
+//     if(comp >= 5){
+//         comp = 0
+//         player = 0
+//         return('the computer wins the game, thanks for playing!')
 
-    }else if(player >= 5){
-        comp = 0
-        player = 0
-        return('you win the game, thanks for playing!')
+//     }else if(player >= 5){
+//         comp = 0
+//         player = 0
+//         return('you win the game, thanks for playing!')
 
-    }
+//     }
     
-}
+// }
